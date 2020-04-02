@@ -186,6 +186,16 @@
                 required: false,
                 default: null
             },
+            dragStartAxis:{
+                type: String,
+                required: false,
+                default: "xy"
+            },
+            dragLockAxis:{
+                type: String,
+                required: false,
+                default: 'xy'
+            },
             resizeIgnoreFrom: {
                 type: String,
                 required: false,
@@ -732,7 +742,9 @@
                 if (this.draggable && !this.static) {
                     const opts = {
                         ignoreFrom: this.dragIgnoreFrom,
-                        allowFrom: this.dragAllowFrom
+                        allowFrom: this.dragAllowFrom,
+                        startAxis: this.dragStartAxis,
+                        lockAxis: this.dragLockAxis
                     };
                     this.interactObj.draggable(opts);
                     /*this.interactObj.draggable({allowFrom: '.vue-draggable-handle'});*/
